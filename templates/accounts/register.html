@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link
+rel="stylesheet"
+href="{% static 'css/auth.css' %}"
+>
+
+<div class="auth-page">
+
+    <div class="auth-layout">
+
+        <!-- LEFT PANEL -->
+
+        <div class="auth-banner">
+
+            <div class="banner-content">
+
+                <h1>
+
+                    Smart Travel Planner
+
+                </h1>
+
+                <p>
+
+                    Join thousands of travelers planning smarter trips with AI-powered recommendations.
+
+                </p>
+
+                <ul class="feature-list">
+
+                    <li>
+                        ✈ Personalized Travel Plans
+                    </li>
+
+                    <li>
+                        🏨 Hotel Recommendations
+                    </li>
+
+                    <li>
+                        🍽 Restaurant Discovery
+                    </li>
+
+                    <li>
+                        📍 Tourist Attractions
+                    </li>
+
+                    <li>
+                        💰 Budget Optimization
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+
+        <div class="auth-card">
+
+            <div class="auth-header">
+
+                <h2>
+
+                    Create Account
+
+                </h2>
+
+                <p>
+
+                    Start planning your dream trips today.
+
+                </p>
+
+            </div>
+
+            {% if form.errors %}
+
+            <div class="form-errors">
+
+                {{ form.errors }}
+
+            </div>
+
+            {% endif %}
+
+            <form
+                method="POST"
+                enctype="multipart/form-data"
+                class="auth-form"
+            >
+
+                {% csrf_token %}
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Username
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="username"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Email
+
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Password
+
+                        </label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Confirm Password
+
+                        </label>
+
+                        <input
+                            type="password"
+                            name="confirm_password"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Phone Number
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="phone_number"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Nationality
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="nationality"
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Address
+
+                    </label>
+
+                    <textarea
+                        name="address"
+                        rows="4"
+                    ></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Profile Photo
+
+                    </label>
+
+                    <input
+                        type="file"
+                        name="profile_photo"
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="auth-btn"
+                >
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+            <div class="auth-links">
+
+                <span>
+
+                    Already have an account?
+
+                </span>
+
+                <a href="{% url 'login' %}">
+
+                    Login
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

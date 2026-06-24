@@ -1,0 +1,358 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link
+rel="stylesheet"
+href="{% static 'css/about.css' %}"
+>
+
+<!-- HERO -->
+
+<section class="about-hero">
+
+    <div class="about-hero-content">
+
+        <h1>
+
+            About Smart Travel Planner
+
+        </h1>
+
+        <p>
+
+            AI-powered travel planning that helps you discover hotels,
+            restaurants, attractions, and complete travel itineraries
+            within your budget.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- MISSION -->
+
+<section class="mission-section">
+
+    <div class="section-header">
+
+        <h2>
+
+            Our Mission
+
+        </h2>
+
+    </div>
+
+    <div class="mission-card">
+
+        <p>
+
+            Planning a trip should be exciting, not stressful.
+            Smart Travel Planner simplifies travel planning by
+            combining budget management, destination discovery,
+            hotel recommendations, restaurant suggestions, and
+            tourist attractions into one intelligent platform.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="about-features">
+
+    <div class="section-header">
+
+        <h2>
+
+            What We Offer
+
+        </h2>
+
+    </div>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ✈
+            </div>
+
+            <h3>
+
+                Smart Trip Planning
+
+            </h3>
+
+            <p>
+
+                Personalized travel plans generated instantly.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                💰
+            </div>
+
+            <h3>
+
+                Budget Optimization
+
+            </h3>
+
+            <p>
+
+                Travel smarter while staying within budget.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🏨
+            </div>
+
+            <h3>
+
+                Hotel Discovery
+
+            </h3>
+
+            <p>
+
+                Find comfortable stays for every traveler.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🍽
+            </div>
+
+            <h3>
+
+                Restaurant Suggestions
+
+            </h3>
+
+            <p>
+
+                Explore local cuisines and top-rated places.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section class="how-section">
+
+    <div class="section-header">
+
+        <h2>
+
+            How It Works
+
+        </h2>
+
+    </div>
+
+    <div class="steps-grid">
+
+        <div class="step-card">
+
+            <div class="step-number">
+
+                1
+
+            </div>
+
+            <h3>
+
+                Enter Details
+
+            </h3>
+
+            <p>
+
+                Source, destination, budget and travelers.
+
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <div class="step-number">
+
+                2
+
+            </div>
+
+            <h3>
+
+                AI Generates Plan
+
+            </h3>
+
+            <p>
+
+                Hotels, restaurants and attractions selected.
+
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <div class="step-number">
+
+                3
+
+            </div>
+
+            <h3>
+
+                Enjoy Your Trip
+
+            </h3>
+
+            <p>
+
+                Travel confidently and save time.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TECH STACK -->
+
+<section class="tech-section">
+
+    <div class="section-header">
+
+        <h2>
+
+            Technology Stack
+
+        </h2>
+
+    </div>
+
+    <div class="tech-grid">
+
+        <div class="tech-card">
+            Django
+        </div>
+
+        <div class="tech-card">
+            Python
+        </div>
+
+        <div class="tech-card">
+            Machine Learning
+        </div>
+
+        <div class="tech-card">
+            Travel APIs
+        </div>
+
+    </div>
+
+</section>
+
+<!-- WHY US -->
+
+<section class="why-section">
+
+    <div class="section-header">
+
+        <h2>
+
+            Why Choose Us?
+
+        </h2>
+
+    </div>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+
+            ✔ Save Time
+
+        </div>
+
+        <div class="why-card">
+
+            ✔ Save Money
+
+        </div>
+
+        <div class="why-card">
+
+            ✔ Personalized Plans
+
+        </div>
+
+        <div class="why-card">
+
+            ✔ Easy To Use
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="about-cta">
+
+    <h2>
+
+        Ready To Start Your Journey?
+
+    </h2>
+
+    <p>
+
+        Let Smart Travel Planner create your perfect trip.
+
+    </p>
+
+    <a
+        href="{% url 'dashboard' %}"
+        class="cta-btn"
+    >
+
+        Plan My Trip
+
+    </a>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link
+rel="stylesheet"
+href="{% static 'css/update_profile.css' %}"
+>
+
+<div class="update-profile-container">
+
+    <div class="update-layout">
+
+        <!-- LEFT SIDE -->
+
+        <div class="profile-preview">
+
+            {% if profile.profile_photo %}
+
+            <img
+                src="{{ profile.profile_photo.url }}"
+                alt="Profile"
+                class="profile-avatar"
+            >
+
+            {% else %}
+
+            <img
+                src="{% static 'images/default-avatar.png' %}"
+                alt="Profile"
+                class="profile-avatar"
+            >
+
+            {% endif %}
+
+            <h2>
+
+                {{ request.user.username }}
+
+            </h2>
+
+            <p>
+
+                {{ request.user.email }}
+
+            </p>
+
+            <div class="preview-info">
+
+                <p>
+
+                    <strong>Phone:</strong>
+
+                    {{ profile.phone_number|default:"Not Provided" }}
+
+                </p>
+
+                <p>
+
+                    <strong>Nationality:</strong>
+
+                    {{ profile.nationality|default:"Not Provided" }}
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="update-form-card">
+
+            <div class="form-header">
+
+                <h1>
+
+                    Update Profile
+
+                </h1>
+
+                <p>
+
+                    Keep your travel information updated.
+
+                </p>
+
+            </div>
+
+            <form
+                method="POST"
+                enctype="multipart/form-data"
+                class="profile-form"
+            >
+
+                {% csrf_token %}
+
+                <div class="form-group">
+
+                    <label>
+
+                        Email Address
+
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        value="{{ request.user.email }}"
+                    >
+
+                </div>
+
+                {{ form.as_p }}
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+
+                        Save Changes
+
+                    </button>
+
+                    <a
+                        href="{% url 'profile' %}"
+                        class="btn-outline"
+                    >
+
+                        Cancel
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

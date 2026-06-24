@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<link
+    rel="stylesheet"
+    href="{% static 'css/dashboard.css' %}"
+>
+
+<div class="dashboard-container">
+
+    <!-- HERO -->
+
+    <div class="dashboard-hero">
+
+        <div class="hero-content">
+
+            <h1>
+
+                Welcome Back 👋
+
+            </h1>
+
+            <p>
+
+                Plan smarter trips with AI-powered recommendations,
+                budget optimization and destination insights.
+
+            </p>
+
+        </div>
+
+        <div class="hero-actions">
+
+            <a
+                href="{% url 'recommendations' %}"
+                class="hero-btn secondary"
+            >
+
+                Recommendations
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- STATS -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <h3>
+                Total Trips
+            </h3>
+
+            <span>
+                {{ total_trips }}
+            </span>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>
+                Favorites
+            </h3>
+
+            <span>
+                {{ favorite_trips }}
+            </span>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>
+                Total Budget
+            </h3>
+
+            <span>
+                ₹{{ total_budget }}
+            </span>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>
+                Destinations
+            </h3>
+
+            <span>
+                {{ destinations }}
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- MOST VISITED DESTINATION -->
+
+    <div class="destination-highlight">
+
+        <h2>
+
+            Most Visited Destination
+
+        </h2>
+
+        <div class="destination-box">
+
+            {% if top_destination %}
+
+                {{ top_destination.destination }}
+
+            {% else %}
+
+                No Trips Yet
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <!-- ANALYTICS + FORM -->
+
+    <div class="dashboard-grid">
+
+        <div class="chart-card">
+
+            <h2>
+
+                Travel Type Analytics
+
+            </h2>
+
+            <canvas
+                id="travelChart"
+            ></canvas>
+
+        </div>
+
+        <div class="form-card">
+
+            <h2>
+
+                Create New Trip
+
+            </h2>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button
+                    type="submit"
+                    class="generate-btn"
+                >
+
+                    Generate Plan
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- RECENT TRIPS -->
+
+    <div class="recent-trips-section">
+
+        <h2>
+
+            Recent Trips
+
+        </h2>
+
+        {% for trip in recent_trips %}
+
+        <div class="trip-row-card">
+
+            <div class="trip-row-image">
+
+                <img
+                    src="https://picsum.photos/500/300?random={{ trip.id }}"
+                    alt="{{ trip.destination }}"
+                >
+
+            </div>
+
+            <div class="trip-row-content">
+
+                <h3>
+
+                    {{ trip.source }}
+                    →
+                    {{ trip.destination }}
+
+                </h3>
+
+                <p>
+
+                    Budget:
+                    ₹{{ trip.budget }}
+
+                </p>
+
+                <p>
+
+                    Travelers:
+                    {{ trip.travelers }}
+
+                </p>
+
+                <a
+                    href="{% url 'trip_detail' trip.id %}"
+                    class="card-btn"
+                >
+
+                    View Details
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="empty-card">
+
+            No Trips Found
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx = document.getElementById(
+    "travelChart"
+);
+
+new Chart(ctx, {
+
+    type: "doughnut",
+
+    data: {
+
+        labels: [
+
+            "Solo",
+            "Family",
+            "Friends",
+            "Couple"
+
+        ],
+
+        datasets: [{
+
+            data: [
+
+                {{ solo_count }},
+                {{ family_count }},
+                {{ friends_count }},
+                {{ couple_count }}
+
+            ]
+
+        }]
+
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+
+                position: "bottom"
+
+            }
+
+        }
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

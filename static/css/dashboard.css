@@ -1,0 +1,388 @@
+.dashboard-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:30px;
+
+}
+
+/* HERO */
+
+.dashboard-hero{
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color:white;
+
+    padding:40px;
+
+    border-radius:24px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.hero-content h1{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.hero-content p{
+
+    opacity:.9;
+
+    max-width:650px;
+
+}
+
+.hero-btn{
+
+    text-decoration:none;
+
+    padding:14px 24px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+.hero-btn.secondary{
+
+    background:white;
+
+    color:#2563eb;
+
+}
+
+/* STATS */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    margin-bottom:35px;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+.stat-card h3{
+
+    margin-bottom:15px;
+
+    color:#64748b;
+
+}
+
+.stat-card span{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#2563eb;
+
+}
+
+/* DESTINATION */
+
+.destination-highlight{
+
+    margin-bottom:35px;
+
+}
+
+.destination-highlight h2{
+
+    margin-bottom:15px;
+
+}
+
+.destination-box{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+/* CHART + FORM */
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+    margin-bottom:40px;
+
+}
+
+.chart-card,
+.form-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+.chart-card h2,
+.form-card h2{
+
+    margin-bottom:25px;
+
+}
+
+.form-card form p{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    margin-bottom:18px;
+
+}
+
+.form-card input,
+.form-card select{
+
+    padding:12px;
+
+    border:1px solid #dbe4f0;
+
+    border-radius:12px;
+
+}
+
+.generate-btn{
+
+    width:100%;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+/* RECENT TRIPS */
+
+.recent-trips-section h2{
+
+    margin-bottom:20px;
+
+}
+
+.trip-row-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    gap:20px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+.trip-row-image{
+
+    width:280px;
+
+    flex-shrink:0;
+
+}
+
+.trip-row-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.trip-row-content{
+
+    padding:25px;
+
+    flex:1;
+
+}
+
+.trip-row-content h3{
+
+    margin-bottom:15px;
+
+}
+
+.trip-row-content p{
+
+    margin-bottom:10px;
+
+    color:#64748b;
+
+}
+
+.card-btn{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+}
+
+.empty-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+    .stats-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .dashboard-container{
+
+        padding:20px;
+
+    }
+
+    .dashboard-hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:20px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:34px;
+
+    }
+
+    .stats-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .trip-row-card{
+
+        flex-direction:column;
+
+    }
+
+    .trip-row-image{
+
+        width:100%;
+
+        height:220px;
+
+    }
+
+}

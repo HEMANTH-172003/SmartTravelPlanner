@@ -1,0 +1,73 @@
+.public-trip-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:30px;
+
+}
+
+.share-cta{
+
+    background:white;
+
+    text-align:center;
+
+    padding:50px;
+
+    margin-top:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+.share-cta h2{
+
+    margin-bottom:10px;
+
+}
+
+.share-cta p{
+
+    color:#64748b;
+
+    margin-bottom:20px;
+
+}
+
+.create-trip-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 24px;
+
+    border-radius:12px;
+
+    display:inline-block;
+
+}
+
+.empty-message{
+
+    color:#64748b;
+
+    margin-bottom:25px;
+
+}
+
+@media(max-width:768px){
+
+    .public-trip-container{
+
+        padding:20px;
+
+    }
+
+}

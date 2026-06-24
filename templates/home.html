@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link
+    rel="stylesheet"
+    href="{% static 'css/home.css' %}"
+>
+
+<section class="hero">
+
+    <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source
+            src="{% static 'videos/Video1.mp4' %}"
+            type="video/mp4"
+        >
+    </video>
+    
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <h1>
+            Plan Smarter.
+            Travel Better.
+        </h1>
+
+        <p>
+            Discover hotels, restaurants, attractions and complete travel plans
+            within your budget using AI-powered recommendations.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="{% url 'dashboard' %}"
+                class="btn-primary"
+            >
+                Start Planning
+            </a>
+
+            <a
+                href="{% url 'recommendations' %}"
+                class="btn-secondary"
+            >
+                Get Recommendations
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+    <div class="section-header">
+
+        <h2>
+
+            Why Choose Smart Travel Planner?
+
+        </h2>
+
+        <p>
+
+            Everything you need for smarter travel planning.
+
+        </p>
+
+    </div>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ✈️
+            </div>
+
+            <h3>
+
+                AI Trip Planning
+
+            </h3>
+
+            <p>
+
+                Generate personalized travel plans instantly.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                💰
+            </div>
+
+            <h3>
+
+                Budget Optimization
+
+            </h3>
+
+            <p>
+
+                Stay within budget while maximizing experiences.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🏨
+            </div>
+
+            <h3>
+
+                Hotel Discovery
+
+            </h3>
+
+            <p>
+
+                Find the best hotels matching your budget.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🍽️
+            </div>
+
+            <h3>
+
+                Restaurant Suggestions
+
+            </h3>
+
+            <p>
+
+                Explore top-rated restaurants near your destination.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section class="how-it-works">
+
+    <div class="section-header">
+
+        <h2>
+
+            How It Works
+
+        </h2>
+
+    </div>
+
+    <div class="steps-grid">
+
+        <div class="step-card">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <h3>
+
+                Enter Details
+
+            </h3>
+
+            <p>
+
+                Enter source, destination, travelers and budget.
+
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <h3>
+
+                Generate Plan
+
+            </h3>
+
+            <p>
+
+                AI finds hotels, restaurants and attractions.
+
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <h3>
+
+                Enjoy Travel
+
+            </h3>
+
+            <p>
+
+                Travel confidently with a complete itinerary.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats-section">
+
+    <div class="stat-box">
+
+        <h2>
+            500+
+        </h2>
+
+        <p>
+            Trips Planned
+        </p>
+
+    </div>
+
+    <div class="stat-box">
+
+        <h2>
+            100+
+        </h2>
+
+        <p>
+            Destinations
+        </p>
+
+    </div>
+
+    <div class="stat-box">
+
+        <h2>
+            95%
+        </h2>
+
+        <p>
+            User Satisfaction
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta-section">
+
+    <h2>
+
+        Ready For Your Next Adventure?
+
+    </h2>
+
+    <p>
+
+        Let AI build your perfect travel plan.
+
+    </p>
+
+    <a
+        href="{% url 'dashboard' %}"
+        class="btn-primary"
+    >
+
+        Plan My Trip
+
+    </a>
+
+</section>
+
+{% endblock %}

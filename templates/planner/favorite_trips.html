@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link
+    rel="stylesheet"
+    href="{% static 'css/favorite_trips.css' %}"
+>
+
+<div class="favorites-container">
+
+    <!-- HERO -->
+
+    <div class="favorites-hero">
+
+        <div>
+
+            <h1>
+
+                Favorite Trips ❤️
+
+            </h1>
+
+            <p>
+
+                Quickly access your most loved travel plans.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- STATS -->
+
+    <div class="favorites-stats">
+
+        <div class="stat-card">
+
+            <h3>
+
+                Total Favorites
+
+            </h3>
+
+            <span>
+
+                {{ total_favorites }}
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- FAVORITE TRIPS -->
+
+    <div class="favorite-trips-list">
+
+        {% for trip in trips %}
+
+        <div class="trip-row-card">
+
+            <div class="trip-row-image">
+
+                <img
+                    src="https://picsum.photos/500/300?random={{ trip.id }}"
+                    alt="{{ trip.destination }}"
+                >
+
+            </div>
+
+            <div class="trip-row-content">
+
+                <div class="trip-top">
+
+                    <h2>
+
+                        {{ trip.destination }}
+
+                    </h2>
+
+                    <span class="favorite-badge">
+
+                        ❤️ Favorite
+
+                    </span>
+
+                </div>
+
+                <div class="trip-info-grid">
+
+                    <div>
+
+                        <strong>Source</strong>
+
+                        <p>
+
+                            {{ trip.source }}
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <strong>Budget</strong>
+
+                        <p>
+
+                            ₹{{ trip.budget }}
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <strong>Travel Type</strong>
+
+                        <p>
+
+                            {{ trip.travel_type }}
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="trip-actions">
+
+                    <a
+                        href="{% url 'trip_detail' trip.id %}"
+                        class="view-btn"
+                    >
+
+                        View Details
+
+                    </a>
+
+                    <a
+                        href="{% url 'favorite_trip' trip.id %}"
+                        class="remove-btn"
+                    >
+
+                        Remove Favorite
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="empty-state">
+
+            <h2>
+
+                No Favorite Trips Yet
+
+            </h2>
+
+            <p>
+
+                Add trips to favorites and they will appear here.
+
+            </p>
+
+            <a
+                href="{% url 'my_trips' %}"
+                class="browse-btn"
+            >
+
+                Browse Trips
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

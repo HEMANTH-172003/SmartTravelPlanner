@@ -1,0 +1,309 @@
+.about-hero{
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:100px 20px;
+
+    border-radius:0 0 40px 40px;
+
+}
+
+.about-hero-content{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.about-hero h1{
+
+    font-size:56px;
+
+    margin-bottom:20px;
+
+}
+
+.about-hero p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+}
+
+/* COMMON */
+
+.mission-section,
+.about-features,
+.how-section,
+.tech-section,
+.why-section,
+.about-cta{
+
+    padding:80px 20px;
+
+}
+
+.section-header{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+.section-header h2{
+
+    font-size:40px;
+
+}
+
+/* MISSION */
+
+.mission-card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+    text-align:center;
+
+    line-height:1.8;
+
+}
+
+/* FEATURES */
+
+.features-grid{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.feature-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+.feature-icon{
+
+    font-size:48px;
+
+    margin-bottom:20px;
+
+}
+
+/* STEPS */
+
+.steps-grid{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.step-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+.step-number{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    font-size:24px;
+
+}
+
+/* TECH */
+
+.tech-grid{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+.tech-card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    font-weight:600;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+/* WHY */
+
+.why-grid{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.why-card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:16px;
+
+    font-weight:600;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+/* CTA */
+
+.about-cta{
+
+    background:#f8fafc;
+
+    text-align:center;
+
+}
+
+.about-cta h2{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+.about-cta p{
+
+    margin-bottom:25px;
+
+    color:#64748b;
+
+}
+
+.cta-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 28px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .about-hero h1{
+
+        font-size:40px;
+
+    }
+
+    .features-grid,
+    .steps-grid,
+    .tech-grid,
+    .why-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

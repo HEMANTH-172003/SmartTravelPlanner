@@ -1,0 +1,175 @@
+.update-profile-container{
+
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
+
+}
+
+.update-layout{
+
+    display:grid;
+    grid-template-columns:350px 1fr;
+    gap:30px;
+
+}
+
+/* LEFT SIDE */
+
+.profile-preview{
+
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+.profile-avatar{
+
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:20px;
+
+}
+
+.profile-preview h2{
+
+    margin-bottom:10px;
+
+}
+
+.profile-preview p{
+
+    color:#64748b;
+
+}
+
+.preview-info{
+
+    margin-top:25px;
+    text-align:left;
+
+}
+
+.preview-info p{
+
+    margin-bottom:12px;
+    color:#475569;
+
+}
+
+/* RIGHT SIDE */
+
+.update-form-card{
+
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+.form-header{
+
+    margin-bottom:25px;
+
+}
+
+.form-header h1{
+
+    font-size:36px;
+    margin-bottom:8px;
+
+}
+
+.form-header p{
+
+    color:#64748b;
+
+}
+
+.profile-form p{
+
+    margin-bottom:18px;
+
+}
+
+.profile-form label{
+
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+
+}
+
+.profile-form input,
+.profile-form select,
+.profile-form textarea{
+
+    width:100%;
+    padding:14px;
+    border:1px solid #dbe2ea;
+    border-radius:12px;
+    font-size:15px;
+
+}
+
+.profile-form textarea{
+
+    min-height:120px;
+
+}
+
+/* ACTIONS */
+
+.form-actions{
+
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+
+}
+
+.btn-primary{
+
+    background:#2563eb;
+    color:#fff;
+    text-decoration:none;
+    border:none;
+    padding:14px 22px;
+    border-radius:12px;
+    cursor:pointer;
+
+}
+
+.btn-outline{
+
+    border:1px solid #2563eb;
+    color:#2563eb;
+    text-decoration:none;
+    padding:14px 22px;
+    border-radius:12px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .update-layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .form-actions{
+
+        flex-direction:column;
+
+    }
+
+}

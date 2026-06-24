@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>
+No Trip Plan Found
+</h2>
+
+<p>
+This trip does not have a generated plan.
+</p>
+
+<a href="{% url 'dashboard' %}">
+Create New Trip
+</a>
+
+{% endblock %}

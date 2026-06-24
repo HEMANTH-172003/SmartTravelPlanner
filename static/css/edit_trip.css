@@ -1,0 +1,237 @@
+.edit-trip-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:40px 20px;
+
+}
+
+.edit-trip-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* LEFT */
+
+.edit-trip-left{
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color:white;
+
+    padding:60px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.trip-icon{
+
+    font-size:70px;
+
+    margin-bottom:25px;
+
+}
+
+.edit-trip-left h1{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+.edit-trip-left p{
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+    opacity:.95;
+
+}
+
+.trip-features{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.trip-features li{
+
+    margin-bottom:15px;
+
+    font-size:16px;
+
+}
+
+.trip-features li::before{
+
+    content:"✓ ";
+
+    font-weight:bold;
+
+}
+
+/* RIGHT */
+
+.edit-trip-right{
+
+    padding:50px;
+
+}
+
+.form-header{
+
+    margin-bottom:25px;
+
+}
+
+.form-header h2{
+
+    margin-bottom:10px;
+
+}
+
+.form-header p{
+
+    color:#64748b;
+
+}
+
+.edit-trip-form p{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:18px;
+
+}
+
+.edit-trip-form label{
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.edit-trip-form input,
+.edit-trip-form select,
+.edit-trip-form textarea{
+
+    padding:12px;
+
+    border:1px solid #dbe4f0;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+}
+
+.form-actions{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.update-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.cancel-btn{
+
+    background:#f1f5f9;
+
+    color:#334155;
+
+    text-decoration:none;
+
+    padding:14px 24px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .edit-trip-card{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .edit-trip-left{
+
+        padding:40px 30px;
+
+        text-align:center;
+
+    }
+
+    .edit-trip-left h1{
+
+        font-size:34px;
+
+    }
+
+    .edit-trip-right{
+
+        padding:30px;
+
+    }
+
+    .form-actions{
+
+        flex-direction:column;
+
+    }
+
+}

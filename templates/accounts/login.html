@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link
+rel="stylesheet"
+href="{% static 'css/auth.css' %}"
+>
+
+<div class="auth-page">
+
+    <div class="auth-layout">
+
+        <!-- LEFT SIDE -->
+
+        <div class="auth-banner">
+
+            <div class="banner-content">
+
+                <h1>
+
+                    Smart Travel Planner
+
+                </h1>
+
+                <p>
+
+                    Plan trips, discover hotels, restaurants and attractions with AI-powered recommendations.
+
+                </p>
+
+                <ul class="feature-list">
+
+                    <li>
+                        ✈ Personalized Travel Plans
+                    </li>
+
+                    <li>
+                        🏨 Hotel Recommendations
+                    </li>
+
+                    <li>
+                        🍽 Restaurant Suggestions
+                    </li>
+
+                    <li>
+                        📍 Tourist Attractions
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="auth-card">
+
+            <div class="auth-header">
+
+                <h2>
+
+                    Welcome Back
+
+                </h2>
+
+                <p>
+
+                    Login to continue your journey.
+
+                </p>
+
+            </div>
+
+            <form
+                method="POST"
+                class="auth-form"
+            >
+
+                {% csrf_token %}
+
+                <div class="form-group">
+
+                    <label>
+
+                        Username
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter Username"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Password
+
+                    </label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter Password"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="auth-btn"
+                >
+
+                    Login
+
+                </button>
+
+            </form>
+
+            <div class="auth-links">
+
+                <a href="{% url 'forgot_password' %}">
+
+                    Forgot Password?
+
+                </a>
+
+                <span>
+
+                    |
+
+                </span>
+
+                <a href="{% url 'register' %}">
+
+                    Create Account
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

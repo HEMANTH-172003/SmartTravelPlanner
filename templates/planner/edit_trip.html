@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link
+    rel="stylesheet"
+    href="{% static 'css/edit_trip.css' %}"
+>
+
+<div class="edit-trip-container">
+
+    <div class="edit-trip-card">
+
+        <!-- LEFT -->
+
+        <div class="edit-trip-left">
+
+            <div class="trip-icon">
+
+                ✈️
+
+            </div>
+
+            <h1>
+
+                Update Your Trip
+
+            </h1>
+
+            <p>
+
+                Modify your destination, budget,
+                travelers and preferences.
+
+            </p>
+
+            <ul class="trip-features">
+
+                <li>
+                    Budget Optimization
+                </li>
+
+                <li>
+                    Hotel Recommendations
+                </li>
+
+                <li>
+                    Restaurant Suggestions
+                </li>
+
+                <li>
+                    Attraction Discovery
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="edit-trip-right">
+
+            <div class="form-header">
+
+                <h2>
+
+                    Edit Trip Details
+
+                </h2>
+
+                <p>
+
+                    Update your travel information.
+
+                </p>
+
+            </div>
+
+            <form
+                method="POST"
+                class="edit-trip-form"
+            >
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="update-btn"
+                    >
+
+                        Update Trip
+
+                    </button>
+
+                    <a
+                        href="{% url 'my_trips' %}"
+                        class="cancel-btn"
+                    >
+
+                        Cancel
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

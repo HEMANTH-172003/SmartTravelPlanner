@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link
+rel="stylesheet"
+href="{% static 'css/recommendations.css' %}"
+>
+
+<div class="recommend-container">
+
+    <!-- HERO -->
+
+    <section class="recommend-hero">
+
+        <h1>
+
+            🎯 AI Travel Recommendations
+
+        </h1>
+
+        <p>
+
+            Discover destinations based on your budget and travel style.
+
+        </p>
+
+    </section>
+
+    <!-- FORM -->
+
+    <section class="recommend-form-card">
+
+        <h2>
+
+            Find Your Perfect Destination
+
+        </h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+
+                        Budget
+
+                    </label>
+
+                    <input
+                        type="number"
+                        name="budget"
+                        placeholder="Enter Budget"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Travel Type
+
+                    </label>
+
+                    <select name="travel_type">
+
+                        <option value="solo">
+
+                            Solo
+
+                        </option>
+
+                        <option value="family">
+
+                            Family
+
+                        </option>
+
+                        <option value="friends">
+
+                            Friends
+
+                        </option>
+
+                        <option value="couple">
+
+                            Couple
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn-primary"
+            >
+
+                Get Recommendations
+
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- RESULTS -->
+
+    {% if recommendations %}
+
+    <section class="recommend-results">
+
+        <div class="section-header">
+
+            <h2>
+
+                🌍 Recommended Destinations
+
+            </h2>
+
+        </div>
+
+        {% for item in recommendations %}
+
+        <div class="recommend-row">
+
+            <div class="recommend-image">
+
+                <img
+                    src="https://picsum.photos/600/400?random={{ forloop.counter }}"
+                    alt="{{ item.destination }}"
+                >
+
+            </div>
+
+            <div class="recommend-content">
+
+                <div class="recommend-top">
+
+                    <h3>
+
+                        {{ item.destination }}
+
+                    </h3>
+
+                    <span class="score-badge">
+
+                        {{ item.score }}% Match
+
+                    </span>
+
+                </div>
+
+                <p>
+
+                    Perfect destination based on your selected budget and travel preferences.
+
+                </p>
+
+                <div class="recommend-actions">
+
+                    <a
+                        href="#"
+                        class="btn-primary"
+                    >
+
+                        Create Trip
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

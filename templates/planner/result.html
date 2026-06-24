@@ -1,0 +1,416 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link
+rel="stylesheet"
+href="{% static 'css/result.css' %}"
+>
+
+<div class="result-container">
+
+    <!-- HERO -->
+
+    <section class="result-hero">
+
+        <div>
+
+            <h1>
+
+                🎉 Trip Plan Generated
+
+            </h1>
+
+            <p>
+
+                {{ result.trip.source }}
+                →
+                {{ result.trip.destination }}
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <span class="success-badge">
+
+                AI Generated
+
+            </span>
+
+        </div>
+
+    </section>
+
+    <!-- STATS -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <h3>Budget</h3>
+
+            <p>
+
+                ₹{{ result.trip.budget }}
+
+            </p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Estimated Cost</h3>
+
+            <p>
+
+                ₹{{ result.estimated_cost }}
+
+            </p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Remaining</h3>
+
+            <p>
+
+                ₹{{ result.remaining_budget }}
+
+            </p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Destination</h3>
+
+            <p>
+
+                {{ result.trip.destination }}
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- SUMMARY -->
+
+    <section class="summary-card">
+
+        <h2>
+
+            Trip Summary
+
+        </h2>
+
+        <div class="summary-grid">
+
+            <div>
+
+                <strong>Source</strong>
+
+                <p>
+
+                    {{ result.trip.source }}
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <strong>Destination</strong>
+
+                <p>
+
+                    {{ result.trip.destination }}
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <strong>Budget</strong>
+
+                <p>
+
+                    ₹{{ result.trip.budget }}
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <strong>Estimated Cost</strong>
+
+                <p>
+
+                    ₹{{ result.estimated_cost }}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HOTELS -->
+
+    <section class="section-block">
+
+        <h2 class="section-title">
+
+            🏨 Hotels
+
+        </h2>
+
+        {% for hotel in result.hotels %}
+
+        <div class="info-card-horizontal">
+
+            <div class="card-image">
+
+                <img
+                    src="{{ hotel.image }}"
+                    alt="{{ hotel.name }}"
+                    onerror="setRandomHotel(this)"
+                >
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>
+
+                    {{ hotel.name }}
+
+                </h3>
+
+                <p>
+
+                    {{ hotel.type }}
+
+                </p>
+
+                <a
+                    href="{{ hotel.map_link }}"
+                    target="_blank"
+                    class="btn-primary"
+                >
+
+                    View on Map
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+    <!-- RESTAURANTS -->
+
+    <section class="section-block">
+
+        <h2 class="section-title">
+
+            🍽 Restaurants
+
+        </h2>
+
+        {% for restaurant in result.restaurants %}
+
+        <div class="info-card-horizontal">
+
+            <div class="card-image">
+
+                <img
+                    src="{{ restaurant.image }}"
+                    alt="{{ restaurant.name }}"
+                    onerror="setRandomRestaurant(this)"
+                >
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>
+
+                    {{ restaurant.name }}
+
+                </h3>
+
+                <p>
+
+                    {{ restaurant.cuisine }}
+
+                </p>
+
+                <a
+                    href="{{ restaurant.map_link }}"
+                    target="_blank"
+                    class="btn-primary"
+                >
+
+                    View on Map
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+    <!-- ATTRACTIONS -->
+
+    <section class="section-block">
+
+        <h2 class="section-title">
+
+            📍 Attractions
+
+        </h2>
+
+        {% for attraction in result.attractions %}
+
+        <div class="info-card-horizontal">
+
+            <div class="card-image">
+
+                {% if attraction.image %}
+
+                <img
+                    src="{{ attraction.image }}"
+                    alt="{{ attraction.name }}"
+                    onerror="this.onerror=null;this.src='/static/images/attractions/default.png';"
+                >
+
+                {% else %}
+
+                <img
+                    src="{% static 'images/attractions/default.jpg' %}"
+                    alt="{{ attraction.name }}"
+                >
+
+                {% endif %}
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>
+
+                    {{ attraction.name }}
+
+                </h3>
+
+                <p>
+
+                    {{ attraction.type }}
+
+                </p>
+
+                <a
+                    href="{{ attraction.map_link }}"
+                    target="_blank"
+                    class="btn-primary"
+                >
+
+                    View on Map
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+    <!-- ACTIONS -->
+
+    <section class="result-actions">
+
+        <a
+            href="{% url 'my_trips' %}"
+            class="btn-outline"
+        >
+
+            View My Trips
+
+        </a>
+
+        <a
+            href="/"
+            class="btn-primary"
+        >
+
+            Create Another Trip
+
+        </a>
+
+    </section>
+
+</div>
+
+<script>
+
+function setRandomHotel(img){
+
+    const hotelImages = [
+        '/static/images/hotels/hotel1.jpg',
+        '/static/images/hotels/hotel2.jpg',
+        '/static/images/hotels/hotel3.jpg',
+        '/static/images/hotels/hotel4.jpg',
+        '/static/images/hotels/hotel5.jpg'
+    ];
+
+    img.onerror = null;
+
+    img.src =
+        hotelImages[
+            Math.floor(
+                Math.random() *
+                hotelImages.length
+            )
+        ];
+}
+
+function setRandomRestaurant(img){
+
+    const restaurantImages = [
+        '/static/images/restaurants/restu1.jpg',
+        '/static/images/restaurants/restu2.jpg',
+        '/static/images/restaurants/restu3.jpg',
+        '/static/images/restaurants/restu4.jpg',
+        '/static/images/restaurants/restu5.jpg'
+    ];
+
+    img.onerror = null;
+
+    img.src =
+        restaurantImages[
+            Math.floor(
+                Math.random() *
+                restaurantImages.length
+            )
+        ];
+}
+
+</script>
+
+{% endblock %}
